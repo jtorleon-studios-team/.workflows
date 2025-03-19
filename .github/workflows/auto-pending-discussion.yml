@@ -5,8 +5,6 @@ on:
     secrets:
       ADD_TO_PROJECT_PAT:
         required: true
-      GITHUB_TOKEN:
-        required: true
 jobs:
   run:
     if: github.actor != github.event.issue.user.login && !contains(github.event.issue.labels.*.name, 'pending discussion')
