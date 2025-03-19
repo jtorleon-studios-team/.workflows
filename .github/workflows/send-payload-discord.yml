@@ -1,0 +1,16 @@
+name: Send Payload Discord
+run-name: ${{ github.actor }} - send payload discord
+on:
+  workflow_call:
+    inputs:
+      payload:
+        required: true
+        type: string
+    secrets:
+      DISCORD:
+        required: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - run: curl -H "Content-Type: application/json" -d "${inputs.payload}" ${{ secrets.DISCORD }}
