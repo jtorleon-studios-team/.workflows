@@ -13,12 +13,11 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - run: gh issue edit "$NUMBER" --add-label "$LABELS"
+      - run: gh issue edit "$NUMBER" --add-label "pending discussion" --remove-label "awaiting contributions"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
-          LABELS: "pending discussion"
       - uses: actions/add-to-project@v1.0.2
         with:
           project-url: https://github.com/orgs/jtorleon-studios-team/projects/4
