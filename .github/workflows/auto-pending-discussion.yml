@@ -1,7 +1,11 @@
 name: Auto Add To Pending Discussion
 on:
-  issue_comment:
-    types: [created]
+  workflow_call:
+    secrets:
+      ADD_TO_PROJECT_PAT:
+        required: true
+      GITHUB_TOKEN:
+        required: true
 jobs:
   run:
     if: github.actor != github.event.issue.user.login && !contains(github.event.issue.labels.*.name, 'pending discussion')
