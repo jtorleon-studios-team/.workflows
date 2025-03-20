@@ -1,6 +1,8 @@
 name: Pending Discussion
 run-name: ${{ github.actor }} - pending discussion
 on:
+  issue_comment:
+    types: [created]
   workflow_call:
     secrets:
       ADD_TO_PROJECT_PAT:
