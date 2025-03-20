@@ -1,6 +1,8 @@
 name: Auto Assign
 run-name: ${{ github.actor }} - auto assign
 on:
+  issues:
+    types: [opened]
   workflow_call:
     secrets:
       ADD_TO_PROJECT_PAT:
